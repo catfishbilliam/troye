@@ -41,6 +41,8 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix(); // Update the camera's projection matrix to match the new aspect ratio
 });
 
+
+
 // Load Troye image as background texture
 const textureLoader = new THREE.TextureLoader();
 const troyeTexture = textureLoader.load('troye.png'); // Make sure the path to the image is correct
@@ -97,6 +99,39 @@ const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 console.log(`Analyser setup complete with fftSize of ${analyser.fftSize} and bufferLength of ${bufferLength}.`);
 
+// GSAP Animation for text
+function animateSongText(song) {
+    const songText = document.getElementById("songText");
+
+    // Set the appropriate text for each song
+    if (song === 'bite.mp3') {
+        songText.textContent = "Don't you want to see your man up close?";
+    } else if (song === 'one-of-your-girls.mp3') {
+        songText.textContent = "Give me a call if you ever get lonely";
+    } else if (song === 'talk-me-down.mp3') {
+        songText.textContent = "So if you don't mind, I'll walk that line";
+    }
+
+    // Animate text with GSAP (fade in)
+    gsap.fromTo(songText, 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 1, ease: "power2.inOut" }); // Fade in
+
+    // Add the glowing effect (no pulsing)
+    gsap.to(songText, {
+        duration: 2,  // Duration for each dim-bright cycle
+        repeat: -1,   // Infinite loop
+        yoyo: true,   // Yoyo effect to go back and forth
+        opacity: 1,   // Bright glow effect
+        ease: "power1.inOut",
+        textShadow: "0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff",
+    });
+
+    // Show the text on the screen
+    songText.style.display = "block";
+}
+
+
 // Song list and default index
 const songList = [
     'bite.mp3',
@@ -113,7 +148,17 @@ function loadAndPlaySong(songIndex) {
     audio.load();
     audio.play();
     console.log(`Now playing: ${currentSong}`);
+
+    // Trigger the song text change based on the current song
+    if (currentSong === "bite.mp3") {
+        animateSongText('bite.mp3');
+    } else if (currentSong === "one-of-your-girls.mp3") {
+        animateSongText('one-of-your-girls.mp3');
+    } else if (currentSong === "talk-me-down.mp3") {
+        animateSongText('talk-me-down.mp3');
+    }
 }
+
 
 // Load the first song initially
 loadAndPlaySong(currentSongIndex);

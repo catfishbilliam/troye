@@ -53,6 +53,27 @@ canvas {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.6); /* Add a subtle glowing effect on focus */
 }
 
+/* Style the song text */
+#songText {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    font-weight: bold;
+    z-index: 100; /* Ensure the text is on top of the scene */
+    display: none; /* Hide the text by default */
+}
+
+/* Pulse and glow effect for text */
+.glowingText {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+}
+
+
 /* Audio player styling */
 audio {
     width: 300px;
