@@ -279,12 +279,6 @@ waveformGeometry.setAttribute('position', new THREE.Float32BufferAttribute(wavef
 const waveform = new THREE.Line(waveformGeometry, waveformMaterial);
 scene.add(waveform);
 
-// Adjust the waveform scale for mobile responsiveness
-function adjustWaveformScale() {
-    const aspectRatio = window.innerWidth / window.innerHeight;
-    const scaleFactor = aspectRatio > 1 ? 10 : 5; // Adjust based on whether the screen is landscape or portrait
-    waveform.scale.set(scaleFactor, 1, 1); // Scale the waveform along the X-axis
-}
 
 function updateWaveform() {
     analyser.getByteFrequencyData(dataArray);
@@ -320,8 +314,6 @@ function animate() {
 
     animateParticles();
     updateWaveform();
-    adjustWaveformScale(); // Adjust scale based on screen size
-
 
     renderer.render(scene, camera);
 }
