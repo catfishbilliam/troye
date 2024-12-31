@@ -113,7 +113,9 @@ audio {
     /* Audio Player */
     audio {
       width: 90%; /* Adjust audio player width for smaller screens */
-      height: 35px; /* Set a fixed height for audio */
+      height: 40px; /* Increase height for better visibility */
+      margin: 0 auto; /* Center the audio player */
+      display: block;
     }
   
     /* Song Selector Dropdown */
@@ -130,8 +132,10 @@ audio {
   
     #songs {
       width: 80%;  /* Adjust width of song selector to fit smaller screen */
-      font-size: 16px; /* Smaller font size */
-      padding: 8px;
+      font-size: 18px; /* Smaller font size */
+      padding: 8px 12px;
+      text-align: center;
+      overflow: auto; /* Allow the text to scroll if needed */
     }
   
     /* Song Text (Song Lyrics Display) */
@@ -157,7 +161,9 @@ audio {
     /* Audio Player */
     audio {
       width: 90%;
-      height: 35px;
+      height: 40px; /* Fixed height for audio player */
+      display: block;
+      margin: 0 auto; /* Center the audio player */
     }
   
     /* Dropdown Adjustments */
