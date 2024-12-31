@@ -279,7 +279,6 @@ waveformGeometry.setAttribute('position', new THREE.Float32BufferAttribute(wavef
 const waveform = new THREE.Line(waveformGeometry, waveformMaterial);
 scene.add(waveform);
 
-
 function updateWaveform() {
     analyser.getByteFrequencyData(dataArray);
 
