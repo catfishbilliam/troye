@@ -164,4 +164,10 @@ audio {
     #songText {
         font-size: 30px;  /* Smaller text on mobile */
     }
+
+    /* Adjust font size for song selector */
+    #songSelector {
+        font-size: 16px;
+        padding: 8px;
+    }
 }
