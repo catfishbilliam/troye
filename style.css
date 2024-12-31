@@ -108,66 +108,95 @@ audio {
 }
 
 
-/* Media Query for smaller screens (mobile, tablets) */
+/* ---------- MOBILE-SPECIFIC CHANGES (for max-width: 768px) ---------- */
 @media (max-width: 768px) {
-    /* Reduce the size of the song selector and audio player */
-    #songs {
-        width: 150px;
-        font-size: 18px;
-        padding: 6px;
+    /* Audio Player */
+    audio {
+      width: 90%; /* Adjust audio player width for smaller screens */
+      height: 35px; /* Set a fixed height for audio */
     }
-
-    /* Stack the controls vertically and adjust spacing */
+  
+    /* Song Selector Dropdown */
     #controlsContainer {
-        bottom: 10px;
-        left: 10px;
-        gap: 8px;  /* Reduce the gap between dropdown and player */
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
-
-    /* Adjust the audio player width for smaller screens */
-    audio {
-        width: 200px;  /* Smaller audio player */
-    }
-
-    /* Adjust font size for song selector */
-    #songSelector {
-        font-size: 16px;
-        padding: 8px;
-    }
-
-    /* Ensure the canvas and grid adjust to smaller screen sizes */
-    canvas {
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Adjust background image for smaller screens */
-    #troyeImage {
-        width: 70%;   /* Make the image a little smaller on mobile */
-        opacity: 0.5;  /* Optional: reduce opacity on small screens */
-    }
-}
-
-@media (max-width: 480px) {
-    /* Further adjust for very small screens */
+  
     #songs {
-        width: 120px;
-        font-size: 16px;
-        padding: 5px;
+      width: 80%;  /* Adjust width of song selector to fit smaller screen */
+      font-size: 16px; /* Smaller font size */
+      padding: 8px;
     }
-
-    audio {
-        width: 180px;  /* Even smaller audio player */
-    }
-
-    /* Reduce the size of the song text */
+  
+    /* Song Text (Song Lyrics Display) */
     #songText {
-        font-size: 30px;  /* Smaller text on mobile */
+      font-size: 24px; /* Make text size smaller for mobile */
+      bottom: 10%; /* Adjust to keep it on screen */
     }
-
-    /* Adjust font size for song selector */
-    #songSelector {
-        font-size: 16px;
-        padding: 8px;
+  
+    /* Background Image (Troye Sivan) */
+    #troyeImage {
+      width: 80%; /* Scale the image to fit smaller screen */
+      height: auto;
     }
-}
+  
+    /* Grid Adjustments */
+    .gridHelper {
+      stroke-width: 0.2; /* Adjust stroke width for better visibility */
+    }
+  }
+  
+  /* ---------- EXTRA SMALL MOBILE SCREENS (for max-width: 480px) ---------- */
+  @media (max-width: 480px) {
+    /* Audio Player */
+    audio {
+      width: 90%;
+      height: 35px;
+    }
+  
+    /* Dropdown Adjustments */
+    #controlsContainer {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 250px; /* Fixed width to maintain dropdown size */
+    }
+  
+    #songs {
+      width: 100%; /* Full width for smaller screens */
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    /* Adjust Song Text size and position for smaller screens */
+    #songText {
+      font-size: 18px; /* Make text even smaller for smaller screens */
+      bottom: 5%; /* Adjust position */
+    }
+  
+    /* Album Art */
+    #troyeImage {
+      width: 100px;  /* Smaller album art */
+      height: 100px;
+    }
+  
+    /* Controls */
+    #controlsContainer {
+      bottom: 10px;
+      left: 10px;
+    }
+  
+    /* Ensure song selector and text fit well */
+    select {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  
