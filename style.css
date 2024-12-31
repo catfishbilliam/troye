@@ -108,73 +108,83 @@ audio {
 }
 
 
-/* ---------- MOBILE-SPECIFIC CHANGES (for max-width: 768px) ---------- */
-/* Media Query for Mobile (max-width 768px) */
-@media (max-width: 768px) {
-    /* Dropdown */
+/* Mobile Devices (480px) */
+@media (max-width: 480px) {
+    /* Controls Adjustments */
+    #controlsContainer {
+        flex-direction: column;
+        bottom: 5px; /* Move controls even closer */
+        gap: 6px; /* Smaller gap */
+        width: 90%;
+    }
+
+    /* Dropdown Styling */
     #songs {
-        width: 90%; /* Fit screen width */
         font-size: 16px;
-        padding: 8px 12px;
+        width: 150px;
+        padding: 5px;
     }
 
     /* Audio Player */
     audio {
         width: 90%;
-        height: 40px;
-        margin: 0 auto;
+        height: 35px; /* Slim audio player */
     }
 
-    /* Troye Image */
-    #troyeImage {
-        width: 300px;
-        height: 300px;
-        top: 55%;
-    }
-
-    /* Text */
+    /* Song Text */
     #songText {
-        font-size: 16px;
-        bottom: 15%;
+        font-size: 24px;
+        top: 12%; /* Adjust text position */
     }
 
-    #controlsContainer {
-        bottom: 10px;
-        width: 90%;
+    /* Background Image */
+    #troyeImage {
+        width: 50%; /* Make it smaller */
+        opacity: 0.5; /* Lower opacity for better visibility */
+    }
+
+    /* Grid Scaling */
+    .gridHelper {
+        opacity: 0.7; /* Reduce glow intensity */
     }
 }
 
-/* Extra Small Screens (480px) */
-@media (max-width: 480px) {
+/* Ultra Small Screens (320px and below) */
+@media (max-width: 320px) {
+    /* Controls */
+    #controlsContainer {
+        bottom: 2px;
+        gap: 5px;
+        width: 90%;
+    }
+
     /* Dropdown */
     #songs {
-        width: 100%;
         font-size: 14px;
-        padding: 6px 10px;
+        width: 120px;
     }
 
     /* Audio Player */
     audio {
-        width: 100%;
-        height: 40px;
+        width: 95%;
+        height: 30px;
     }
 
-    /* Troye Image */
-    #troyeImage {
-        width: 250px;
-        height: 250px;
-        top: 60%;
-    }
-
-    /* Text */
+    /* Song Text */
     #songText {
-        font-size: 14px;
-        bottom: 20%;
+        font-size: 20px;
+        top: 10%; /* Move higher */
     }
 
-    #controlsContainer {
-        bottom: 10px;
-        width: 90%;
+    /* Background Image */
+    #troyeImage {
+        width: 60%;
+        opacity: 0.4;
+    }
+
+    /* Reduce Grid Visibility */
+    .gridHelper {
+        opacity: 0.5;
     }
 }
   

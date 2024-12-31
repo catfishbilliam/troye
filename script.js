@@ -8,6 +8,23 @@ camera.position.x = 0;   // Keep camera centered horizontally
 camera.position.y = 0;   // Center vertically
 camera.position.z = 8;  // Move the camera further out for better view
 
+// Handle responsive camera positioning for mobile
+function handleResponsiveCamera() {
+    if (window.innerWidth <= 768) { // Mobile devices
+        camera.position.z = 14; // Zoom out slightly on mobile
+    } else { // Desktop or larger screens
+        camera.position.z = 8; // Default zoom
+    }
+    camera.updateProjectionMatrix(); // Update the camera matrix
+}
+
+// Listen for window resize events
+window.addEventListener('resize', handleResponsiveCamera);
+
+// Call it once during initialization
+handleResponsiveCamera();
+
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
