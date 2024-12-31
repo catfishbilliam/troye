@@ -1,3 +1,14 @@
+// Fix mobile audio context issues
+document.addEventListener('click', () => {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+    if (audio.paused) {
+        audio.play(); // Ensure audio starts playing after user interaction
+    }
+});
+
+
 // Set up the scene, camera, and renderer
 console.log('Setting up the scene...');
 const scene = new THREE.Scene();
