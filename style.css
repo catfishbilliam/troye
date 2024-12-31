@@ -140,4 +140,28 @@ audio {
         width: 100%;
         height: 100%;
     }
+
+    /* Adjust background image for smaller screens */
+    #troyeImage {
+        width: 70%;   /* Make the image a little smaller on mobile */
+        opacity: 0.5;  /* Optional: reduce opacity on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjust for very small screens */
+    #songs {
+        width: 120px;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    audio {
+        width: 180px;  /* Even smaller audio player */
+    }
+
+    /* Reduce the size of the song text */
+    #songText {
+        font-size: 30px;  /* Smaller text on mobile */
+    }
 }
