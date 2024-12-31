@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troye Sivan Pop Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Audiowide&family=Cedarville+Cursive&family=Fascinate&family=Inter:ital,opsz,wght@0,14..32,700;1,14..32,700&family=Lovers+Quarrel&family=Lunasima:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background image for Troye Sivan (use this for the image to appear) -->
+<img id="troyeImage" src="troye.png" alt="Troye Sivan">
+
+
+    <div id="controlsContainer">
+        <div id="songSelector">
+            <select id="songs">
+                <option value="" disabled selected>Select a song</option>  <!-- Default option -->
+                <option value="bite.mp3">Bite</option>
+                <option value="talk-me-down.mp3">Talk Me Down</option>
+                <option value="one-of-your-girls.mp3">One of Your Girls</option>
+                <!-- Add more song options here -->
+            </select>
+        </div>
+        <audio id="audioPlayer" controls>
+            <source src="talk-me-down.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <canvas></canvas>
+
+    <!-- CDN links for Three.js and audio library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.28/Tone.js"></script>
+
+    <!-- Import the visualizer script as a module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

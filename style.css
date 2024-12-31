@@ -1,0 +1,122 @@
+/* General body styling */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Teko", sans-serif;
+}
+
+/* Fullscreen canvas styling */
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container for audio player and song selector */
+#controlsContainer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 20;  /* Ensure it's above the canvas */
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center the items horizontally */
+    gap: 10px; /* Space between the dropdown and the audio player */
+}
+
+/* Styling for the song selection dropdown with a red gradient */
+#songSelector {
+    background: linear-gradient(135deg, #0000ff, #00008b); /* Blue to dark blue gradient */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Add some shadow for depth */
+    font-weight: bold;
+}
+
+#songs {
+    padding: 8px;
+    font-size: 22px;
+    letter-spacing: 3px;
+    background-color: #ffffff;
+    color: #000;
+    border: none; /* Remove default border */
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    font-family: inherit;
+    text-align: center;
+    font-weight: bold;
+}
+
+#songs:focus {
+    outline: none;  /* Remove the default outline on focus */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6); /* Add a subtle glowing effect on focus */
+}
+
+/* Audio player styling */
+audio {
+    width: 300px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    color: #fff;
+}
+
+/* Grid background styling (add glow effect) */
+.gridHelper {
+    background-color: transparent;
+}
+
+/* Style the grid helper lines */
+.gridHelper .line {
+    stroke: #0000ff;
+    stroke-width: 0.2;
+}
+
+/* Styling for the background image (Troye Sivan image) */
+#troyeImage {
+    position: absolute;  /* Position it absolutely */
+    top: 50%;            /* Center it vertically */
+    left: 50%;           /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact center alignment */
+    width: 50%;          /* Set the image width as 50% of the parent container */
+    height: auto;        /* Maintain the aspect ratio */
+    z-index: 1;          /* Ensure it's behind the particles and waveform */
+    opacity: 0.7;        /* Optional: set opacity for visual effect */
+    pointer-events: none; /* Ensure it's not blocking interactions with other elements */
+}
+
+
+/* Media Query for smaller screens (mobile, tablets) */
+@media (max-width: 768px) {
+    /* Reduce the size of the song selector and audio player */
+    #songs {
+        width: 150px;
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    /* Stack the controls vertically and adjust spacing */
+    #controlsContainer {
+        bottom: 10px;
+        left: 10px;
+        gap: 8px;  /* Reduce the gap between dropdown and player */
+    }
+
+    /* Adjust the audio player width for smaller screens */
+    audio {
+        width: 200px;  /* Smaller audio player */
+    }
+
+    /* Adjust font size for song selector */
+    #songSelector {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    /* Ensure the canvas and grid adjust to smaller screen sizes */
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+}
