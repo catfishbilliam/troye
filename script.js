@@ -1,14 +1,3 @@
-// Fix mobile audio context issues
-document.addEventListener('click', () => {
-    if (audioContext.state === 'suspended') {
-        audioContext.resume();
-    }
-    if (audio.paused) {
-        audio.play(); // Ensure audio starts playing after user interaction
-    }
-});
-
-
 // Set up the scene, camera, and renderer
 console.log('Setting up the scene...');
 const scene = new THREE.Scene();
@@ -109,6 +98,25 @@ analyser.fftSize = 256;  // Determines the frequency resolution
 const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 console.log(`Analyser setup complete with fftSize of ${analyser.fftSize} and bufferLength of ${bufferLength}.`);
+
+audio.addEventListener('play', () => {
+    const currentSong = audio.src.split('/').pop();  // Get the song filename
+    animateSongText(currentSong); // Update the text for the song
+    console.log('Audio started playing:', currentSong);
+});
+
+audio.addEventListener('pause', () => {
+    console.log('Audio paused.');
+});
+
+audio.addEventListener('ended', () => {
+    hideSongText();  // Hide text when the song ends
+
+    // Move to the next song automatically
+    currentSongIndex = (currentSongIndex + 1) % songList.length;
+    loadAndPlaySong(currentSongIndex);
+});
+
 
 // GSAP Animation for text
 function animateSongText(song) {
